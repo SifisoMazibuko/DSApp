@@ -22,17 +22,30 @@ namespace DSApp
             InitializeComponent();
 
             MenuList = new List<MasterPageItem>();
-
-            // Navigation menu 
+            
             #region Pages for navigation
-                var initial = new MasterPageItem() { Title = "Home", Icon = "home.png", TargetType = typeof(HomePage) };
-                var second = new MasterPageItem() { Title = "Login", Icon = "login.png", TargetType = typeof(Login) };
-                var third = new MasterPageItem() { Title = "Register", Icon = "UserRegister.png", TargetType = typeof(Register) };
+                var initial = new MasterPageItem()
+                {
+                    Title = "Home",
+                    Icon = "home.png",
+                    TargetType = typeof(HomePage)
+                };
+                var second = new MasterPageItem()
+                {
+                    Title = "Login",
+                    Icon = "login.png",
+                    TargetType = typeof(Login)
+                };
+                var third = new MasterPageItem()
+                {
+                    Title = "Register",
+                    Icon = "UserRegister.png",
+                    TargetType = typeof(Register)
+                };
 
             #endregion
 
-
-
+            #region check
             //var masterPageItems = new List<MasterPageItem>();
             //masterPageItems.Add(new MasterPageItem
             //{
@@ -58,23 +71,21 @@ namespace DSApp
             //masterPageItems.Add(page3);
 
 
-            // Adding menu items to menuList
+            #endregion
+
+
+            #region  Adding menu items to menuList
             MenuList.Add(initial);
             MenuList.Add(second);
             MenuList.Add(third);
-
-
-            // Setting our list to be ItemSource for ListView in MainPage.xaml
+            
             navigationDrawerList.ItemsSource = MenuList;
-
-            // Initial navigation, this can be used for our home page
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(HomePage)));
 
-
+            #endregion
         }
         private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
             var item = (MasterPageItem)e.SelectedItem;
             Type page = item.TargetType;
 

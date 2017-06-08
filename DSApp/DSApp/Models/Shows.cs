@@ -8,7 +8,7 @@ namespace DSApp.Models
 {
     public class Shows
     {
-        public byte[] ShowImage { get; set; }
+        //public byte[] ShowImage { get; set; }
         public string ShowName { get; set; }
         public string ShowDescription { get; set; }
         public string Category { get; set; }

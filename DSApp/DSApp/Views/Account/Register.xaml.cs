@@ -16,5 +16,9 @@ namespace DSApp.Views.Account
         {
             InitializeComponent();
         }
+        private async void Button_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Login());
+        }
     }
 }

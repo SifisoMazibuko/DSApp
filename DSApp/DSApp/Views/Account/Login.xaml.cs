@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MapKit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,11 @@ namespace DSApp.Views.Account
         {
             await Navigation.PushAsync(new FirstPage());
             //ICommand WebBrowser = new Command(() => Device.OpenUri(new Uri("https://dstv.com/")));
+        }
+
+        async void OnClickForgotButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync (new ForgotPassword());
         }
     }
 }

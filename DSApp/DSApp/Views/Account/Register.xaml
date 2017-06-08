@@ -2,8 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             x:Class="DSApp.Views.Account.Register">
-
+             xmlns:vm="clr-namespace:DSApp.ViewModel;assembly=DSApp"
+             x:Class="DSApp.Views.Account.Register" Title="Register">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
 
@@ -13,10 +16,10 @@
                   "{ConstraintExpression Type=RelativeToParent, Property=Width}"
                 RelativeLayout.HeightConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
-                <Entry x:Name="Username" Placeholder="Username" FontSize="Medium"/>
-                <Entry x:Name="FirstName" Placeholder="FirstName" FontSize="Medium"/>
-                <Entry x:Name="SurName" Placeholder="SurName" FontSize="Medium"/>
-                <Label Text="Date Of Birth:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Username" FontSize="Medium"/>
+                <Entry x:Name="FirstName" Text="{Binding FirstName}" Placeholder="FirstName" FontSize="Medium"/>
+                <Entry x:Name="SurName" Text="{Binding SurName}" Placeholder="Surname" FontSize="Medium"/>
+                <Label Text="Gender:" FontSize="Medium" HorizontalOptions="Start"/>
                 <Picker x:Name="Gender" SelectedIndex="{Binding Gender}" HorizontalOptions="FillAndExpand">
                     <Picker.Items>
                         <x:String>Male</x:String>
@@ -26,7 +29,7 @@
                 </Picker>
 
                 <Label Text="Date Of Birth:" FontSize="Medium" HorizontalOptions="Start"/>
-                <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+                <DatePicker  VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
                     <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
                     <DatePicker.MinimumDate>
                         <sys:DateTime x:FactoryMethod="Parse">
@@ -78,13 +81,16 @@
                     </Picker.Items>
                 </Picker>
 
-                <Entry x:Name="Phone" Placeholder="Phone" FontSize="Medium"/>
-                <Entry x:Name="Email" Placeholder="Email" FontSize="Medium"/>
-                <Entry x:Name="Password" Placeholder="Password" IsPassword="True" FontSize="Medium"/>
+                <Entry x:Name="Phone" Text="{Binding Phone}" Placeholder="Phone" FontSize="Medium"/>
+                <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email" FontSize="Medium"/>
+                <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" IsPassword="True" FontSize="Medium"/>
                 <Button Text="Register"
-                TextColor="White"
-                FontSize="Medium"
-                BackgroundColor="Blue"/>
+                        Command="{Binding RegisterCommand}"
+                    TextColor="White"
+                    FontSize="Medium"
+                    BackgroundColor="Blue"/>
+
+                <Label Text="{Binding Message}" HorizontalOptions="Center" FontSize="Medium"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

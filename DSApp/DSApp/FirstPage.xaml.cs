@@ -23,27 +23,50 @@ namespace DSApp
             InitializeComponent();
 
             MenuList = new List<MasterPageItem>();
-
-            // Navigation menu
+            
             #region Pages for navigation
-            var initial = new MasterPageItem() { Title = "Home", Icon = "home.png", TargetType = typeof(HomePage) };
-            var second = new MasterPageItem() { Title = "TV Guide", Icon = "guide.png", TargetType = typeof(HomePage) };
-            var third = new MasterPageItem() { Title = "Catch Up", Icon = "catchup.png", TargetType = typeof(HomePage) };
-            var fourth = new MasterPageItem() { Title = "Live TV", Icon = "tv.png", TargetType = typeof(HomePage) };
-            var fifth = new MasterPageItem() { Title = "Profile", Icon = "profile.png", TargetType = typeof(HomePage) };
+            var initial = new MasterPageItem()
+            {
+                Title = "Home",
+                Icon = "home.png",
+                TargetType = typeof(HomePage)
+            };
+            var second = new MasterPageItem()
+            {
+                Title = "TV Guide",
+                Icon = "guide.png",
+                TargetType = typeof(Guide)
+            };
+            var third = new MasterPageItem()
+            {
+                Title = "Catch Up",
+                Icon = "catchup.png",
+                TargetType = typeof(HomePage)
+            };
+            var fourth = new MasterPageItem()
+            { Title = "Live TV",
+                Icon = "tv.png",
+                TargetType = typeof(HomePage)
+            };
+            var fifth = new MasterPageItem()
+            {
+                Title = "Profile",
+                Icon = "profile.png",
+                TargetType = typeof(HomePage)
+            };
 
             #endregion
-
-            // Adding menu items to menuList
+            
+            #region Add menu to list & initial navigation
             MenuList.Add(initial);
             MenuList.Add(second);
             MenuList.Add(third);
             MenuList.Add(fourth);
             MenuList.Add(fifth);
-            
+
             navigationDrawerList.ItemsSource = MenuList;
-            // Initial navigation
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(HomePage)));
+            #endregion
 
         }
         private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)

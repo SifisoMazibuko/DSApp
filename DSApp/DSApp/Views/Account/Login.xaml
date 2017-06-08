@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DSApp.Views.Account.Login">
+             xmlns:vm="clr-namespace:DSApp.ViewModel;assembly=DSApp"
+             x:Class="DSApp.Views.Account.Login" Title="Login">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="10" VerticalOptions="Center">
@@ -10,14 +14,21 @@
                   "{ConstraintExpression Type=RelativeToParent, Property=Width}"
                 RelativeLayout.HeightConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
-                <Entry Placeholder="Username" FontSize="Medium"/>
-                <Entry Placeholder="password"/>
+                <Entry x:Name="UserName" Text="{Binding UserName}" Placeholder="Username" FontSize="Medium"/>
+                <Entry x:Name="Password" Text="{Binding Password}" Placeholder="password" IsPassword="True"/>
                 <Button Text="Login"
                         Clicked="OnClickLoginButton"
+                        Command="{Binding LoginCommand}"
                         TextColor="White"
                         FontSize="Medium"
-                        BackgroundColor="Blue"/>    
+                        BackgroundColor="DeepSkyBlue"/>
+                <Button Text="Forgot Password"
+                        Clicked="OnClickForgotButton"
+                        TextColor="White"
+                        FontSize="Medium"
+                        BackgroundColor="Green"/>
             </StackLayout>
-        </ScrollView>
+        </ScrollView>        
+        
     </ContentPage.Content>   
 </ContentPage>

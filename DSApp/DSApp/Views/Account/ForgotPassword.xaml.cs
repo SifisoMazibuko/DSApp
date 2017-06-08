@@ -15,6 +15,16 @@ namespace DSApp.Views.Account
         public ForgotPassword()
         {
             InitializeComponent();
+            Email.Focus();
+        }
+
+        private void OnCancelButtonClicked(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void OnSubmitButtonClicked(object sender, EventArgs e)
+        {
         }
     }
 }

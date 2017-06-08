@@ -1,5 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DSApp.Views.DSTV.Guide">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             x:Class="DSApp.Views.DSTV.Guide"
+             xmlns:local="clr-namespace:DSApp.ViewModel;assembly=DSApp">
+    <ContentPage.BindingContext>
+        <local:ShowViewModel/>
+    </ContentPage.BindingContext>
+    <ListView ItemsSource="{Binding ShowsList}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="12,6">
+                            <Label Text="{Binding ShowName}" FontSize="Medium"/>
+                            <Label Text="{Binding ShowDescription}" FontSize="Medium"/>
+                            <Label Text="{Binding Category}" FontSize="Medium"/>
+                            <Label Text="{Binding StartDate}" FontSize="Medium"/>
+                            <Label Text="{Binding EndDate}" FontSize="Medium"/>
+                            <Label Text="{Binding Gender}" FontSize="Medium"/>
+                            <Label Text="{Binding Duration}" FontSize="Medium"/>
+                            <Label Text="{Binding Channel}" FontSize="Medium"/>
+                            <Label Text="{Binding AgeRestriction}" FontSize="Medium"/>
+                            <Label Text="{Binding ChannelName}" FontSize="Medium"/>
+                        </StackLayout>
+                   
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
