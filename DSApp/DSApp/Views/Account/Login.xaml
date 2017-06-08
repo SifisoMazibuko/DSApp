@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DSApp.Views.Account.Login">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" VerticalOptions="Center">
+                <Image Source="user.png" Opacity="0.1"
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+                <Entry Placeholder="Username" FontSize="Medium"/>
+                <Entry Placeholder="password"/>
+                <Button Text="Login"
+                        Clicked="OnClickLoginButton"
+                        TextColor="White"
+                        FontSize="Medium"
+                        BackgroundColor="Blue"/>    
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>   
+</ContentPage>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="DSApp.Views.Account.Register">
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout Spacing="10" Margin="0,20,0,20">
+                <Image Source="register.png" Opacity="0.1"
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+                <Entry x:Name="Username" Placeholder="Username" FontSize="Medium"/>
+                <Entry x:Name="FirstName" Placeholder="FirstName" FontSize="Medium"/>
+                <Entry x:Name="SurName" Placeholder="SurName" FontSize="Medium"/>
+                <Label Text="Date Of Birth:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Picker x:Name="Gender" SelectedIndex="{Binding Gender}" HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                        <x:String>Other</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Date Of Birth:" FontSize="Medium" HorizontalOptions="Start"/>
+                <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+                    <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                    <DatePicker.MinimumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Jan 1 2000</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MinimumDate>
+                    <DatePicker.MaximumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Dec 31 2050</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MaximumDate>
+                </DatePicker>
+
+                <Label Text="Select Country:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Picker x:Name="Country" SelectedIndex="{Binding Country}" HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>South Africa</x:String>
+                        <x:String>Algeria</x:String>
+                        <x:String>Benin</x:String>
+                        <x:String>Botswana</x:String>
+                        <x:String>Burkina Faso</x:String>
+                        <x:String>Burundi</x:String>
+                        <x:String>Cameroon</x:String>
+                        <x:String>Cape Verde</x:String>
+                        <x:String>Central African Republic</x:String>
+                        <x:String>Chad</x:String>
+                        <x:String>Cameroon</x:String>
+                        <x:String>DRC</x:String>
+                        <x:String>Equatorial Guinea</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Select Province:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Picker x:Name="Province" SelectedIndex="{Binding Province}" HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>Gauteng</x:String>
+                        <x:String>North West</x:String>
+                        <x:String>Limpopo</x:String>
+                        <x:String>The Eastern Cape</x:String>
+                        <x:String>The Free State</x:String>
+                        <x:String>KwaZulu-Natal</x:String>
+                        <x:String>The Northern Cape</x:String>
+                        <x:String>Western Cape</x:String>
+                        <x:String>Mpumalanga</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Entry x:Name="Phone" Placeholder="Phone" FontSize="Medium"/>
+                <Entry x:Name="Email" Placeholder="Email" FontSize="Medium"/>
+                <Entry x:Name="Password" Placeholder="Password" IsPassword="True" FontSize="Medium"/>
+                <Button Text="Register"
+                TextColor="White"
+                FontSize="Medium"
+                BackgroundColor="Blue"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

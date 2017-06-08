@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="DSApp.Views.Home.HomePage" BackgroundImage="back.jpg">
+
+    <!--<ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" VerticalOptions="Center">
+                <Button Text="Link to Account"
+                        Clicked="OnClickButton"
+                        Command="{Binding WebBrowser}"
+                        TextColor="White"
+                        FontSize="Medium"
+                        BackgroundColor="LightBlue"
+                        HeightRequest="60"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>-->   
+</ContentPage>
