@@ -15,13 +15,11 @@ namespace DSApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-        public List<MasterPageItem> MenuList { get; set; }
+        public List<MasterPageItem> list { get; set; }
         public MainPage()
         {
-
             InitializeComponent();
-
-            MenuList = new List<MasterPageItem>();
+            list = new List<MasterPageItem>();
             
             #region Pages for navigation
                 var initial = new MasterPageItem()
@@ -42,7 +40,6 @@ namespace DSApp
                     Icon = "UserRegister.png",
                     TargetType = typeof(Register)
                 };
-
             #endregion
 
             #region check
@@ -66,30 +63,30 @@ namespace DSApp
             //    TargetType = typeof(Register)
             //});
 
-            //masterPageItems.Add(MenuList);
+            //masterPageItems.Add(list);
             //masterPageItems.Add(page2);
             //masterPageItems.Add(page3);
 
 
             #endregion
 
-
-            #region  Adding menu items to menuList
-            MenuList.Add(initial);
-            MenuList.Add(second);
-            MenuList.Add(third);
+            #region  Adding menu items to list
+            list.Add(initial);
+            list.Add(second);
+            list.Add(third);
             
-            navigationDrawerList.ItemsSource = MenuList;
+            navigationDrawerList.ItemsSource = list;
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(HomePage)));
 
             #endregion
         }
-        private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = (MasterPageItem)e.SelectedItem;
             Type page = item.TargetType;
-
-            Detail = new NavigationPage((Page)Activator.CreateInstance(page));
+             Detail = new NavigationPage((Page)Activator.CreateInstance(page));
+           
+           
             IsPresented = false;
         }                
     }

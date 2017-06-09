@@ -19,9 +19,7 @@ namespace DSApp
         public List<MasterPageItem> MenuList { get; set; }
         public FirstPage()
         {
-
             InitializeComponent();
-
             MenuList = new List<MasterPageItem>();
             
             #region Pages for navigation
@@ -54,9 +52,7 @@ namespace DSApp
                 Icon = "profile.png",
                 TargetType = typeof(HomePage)
             };
-
-            #endregion
-            
+            #endregion            
             #region Add menu to list & initial navigation
             MenuList.Add(initial);
             MenuList.Add(second);
@@ -67,7 +63,6 @@ namespace DSApp
             navigationDrawerList.ItemsSource = MenuList;
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(HomePage)));
             #endregion
-
         }
         private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

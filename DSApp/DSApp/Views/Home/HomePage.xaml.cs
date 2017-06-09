@@ -44,10 +44,7 @@ namespace DSApp.Views.Home
             Device.OpenUri(new Uri("https://now.dstv.com/Home/Login?returnUrl=http%3A%2F%2Fnow.dstv.com%2FLiveTv"));
             //ICommand WebBrowser = new Command(() => Device.OpenUri(new Uri("https://dstv.com/")));
         }
-        //public void OnClickWebButton()
-        //{
-        //   ICommand WebBrowser = new Command(() => Device.OpenUri(new Uri("https://dstv.com/")));
-        //}
+        
         public ICommand WebBrowser { get; }
     }
 }

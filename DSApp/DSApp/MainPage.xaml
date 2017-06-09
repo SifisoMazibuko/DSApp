@@ -11,25 +11,20 @@
                     RelativeLayout.WidthConstraint=
                       "{ConstraintExpression Type=RelativeToParent, Property=Width}"
                     RelativeLayout.HeightConstraint=
-                      "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
-                
+                      "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>              
 
                 <ListView x:Name="navigationDrawerList"
-                          RowHeight="60"
-                          SeparatorVisibility="Default"
-                          
-                          ItemSelected="OnMenuItemSelected">
-
-                    <ListView.ItemTemplate
-                        SeparatorVisibility="Default">
+                          RowHeight="70"
+                          SeparatorVisibility="Default"                          
+                          ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate SeparatorVisibility="Default">
                         <DataTemplate>
                             <ViewCell>
-
                                 <!-- Main design for our menu items -->
                                 <StackLayout VerticalOptions="FillAndExpand"
                                              Orientation="Horizontal"
                                              Padding="20,10,0,10"
-                                             Spacing="20">     
+                                             Spacing="20">    
 
                                     <Image Source="{Binding Icon}"
                                          WidthRequest="40"

@@ -6,33 +6,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using DSApp.Models;
+using Plugin.RestClient;
+  
 
 namespace DSApp.ViewModel
 {
     public class RegisterViewModel
     {
-        private readonly RegisterService _regServices = new RegisterService();
+       private readonly RegisterService<Customers> _regServices = new RegisterService<Customers>();
 
-        public string UserName { get; set; }
-        public string FirstName { get; set; }
-        public string SurName { get; set; }
-        public string DOB { get; set; }
-        public string Gender { get; set; }
-        public string Country { get; set; }
-        public string Province { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        private RestClient<Customers> _restClient = new RestClient<Customers>();
+
+        public Customers model = new Customers();
         public string Message { get; set; }
+
         public ICommand RegisterCommand
         {
             get
             {
                 return new Command(async () =>
                 {
-                    var reg = await _regServices.RegisterUserAsync(UserName,FirstName, SurName, DOB, 
-                        Gender, Country, Province, Phone, Email, Password);                   
-                    
+                    //var reg = await _regServices.RegisterUserAsync(model
+
+                    var reg = await _restClient.PostAsync(model);
+
                     if (reg)
                     {
                         Message = "Successfully registered :)";
@@ -42,8 +40,9 @@ namespace DSApp.ViewModel
                         Message = "Please try again :(";
                     }
                 });
-            }
-        }
 
+            }
+
+        }
     }
 }

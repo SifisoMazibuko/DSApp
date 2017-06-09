@@ -13,7 +13,7 @@ namespace DSApp
         {
             InitializeComponent();
 
-            MainPage = new DSApp.MainPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

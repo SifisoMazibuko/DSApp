@@ -13,7 +13,7 @@ namespace DSApp.ViewModel
     {
         private readonly LoginService _logServices = new LoginService();
 
-        public string Username { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
         public ICommand LoginCommand
         {
@@ -21,7 +21,7 @@ namespace DSApp.ViewModel
             {
                 return new Command(async () =>
                 {
-                    var log = await _logServices.LoginAsync(Username, Password);
+                    var log = await _logServices.LoginAsync(UserName, Password);
                 });
             }
         }

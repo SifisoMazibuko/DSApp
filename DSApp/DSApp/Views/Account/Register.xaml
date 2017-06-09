@@ -7,20 +7,20 @@
     <ContentPage.BindingContext>
         <vm:RegisterViewModel/>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <ScrollView>
 
+    <ContentPage.Content>
+         <ScrollView>
             <StackLayout Spacing="10" Margin="0,20,0,20">
                 <Image Source="register.png" Opacity="0.1"
                 RelativeLayout.WidthConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Width}"
                 RelativeLayout.HeightConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
-                <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Username" FontSize="Medium"/>
-                <Entry x:Name="FirstName" Text="{Binding FirstName}" Placeholder="FirstName" FontSize="Medium"/>
-                <Entry x:Name="SurName" Text="{Binding SurName}" Placeholder="Surname" FontSize="Medium"/>
+                <Entry x:Name="UserName" Text="{Binding UserName, Mode=TwoWay}" Placeholder="Username" FontSize="Medium"/>
+                <Entry x:Name="FirstName" Text="{Binding FirstName, Mode=TwoWay}" Placeholder="FirstName" FontSize="Medium"/>
+                <Entry x:Name="SurName" Text="{Binding SurName, Mode=TwoWay}" Placeholder="Surname" FontSize="Medium"/>
                 <Label Text="Gender:" FontSize="Medium" HorizontalOptions="Start"/>
-                <Picker x:Name="Gender" SelectedIndex="{Binding Gender}" HorizontalOptions="FillAndExpand">
+                <Picker x:Name="Gender" SelectedIndex="{Binding Gender, Mode=TwoWay}" HorizontalOptions="FillAndExpand">
                     <Picker.Items>
                         <x:String>Male</x:String>
                         <x:String>Female</x:String>
@@ -29,7 +29,7 @@
                 </Picker>
 
                 <Label Text="Date Of Birth:" FontSize="Medium" HorizontalOptions="Start"/>
-                <DatePicker  VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+                <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
                     <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
                     <DatePicker.MinimumDate>
                         <sys:DateTime x:FactoryMethod="Parse">
@@ -48,7 +48,7 @@
                 </DatePicker>
 
                 <Label Text="Select Country:" FontSize="Medium" HorizontalOptions="Start"/>
-                <Picker x:Name="Country" SelectedIndex="{Binding Country}" HorizontalOptions="FillAndExpand">
+                <Picker x:Name="Country" SelectedIndex="{Binding Country, Mode=TwoWay}" HorizontalOptions="FillAndExpand">
                     <Picker.Items>
                         <x:String>South Africa</x:String>
                         <x:String>Algeria</x:String>
@@ -67,7 +67,7 @@
                 </Picker>
 
                 <Label Text="Select Province:" FontSize="Medium" HorizontalOptions="Start"/>
-                <Picker x:Name="Province" SelectedIndex="{Binding Province}" HorizontalOptions="FillAndExpand">
+                <Picker x:Name="Province" SelectedIndex="{Binding Province, Mode=TwoWay}" HorizontalOptions="FillAndExpand">
                     <Picker.Items>
                         <x:String>Gauteng</x:String>
                         <x:String>North West</x:String>
@@ -81,14 +81,14 @@
                     </Picker.Items>
                 </Picker>
 
-                <Entry x:Name="Phone" Text="{Binding Phone}" Placeholder="Phone" FontSize="Medium"/>
-                <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email" FontSize="Medium"/>
-                <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" IsPassword="True" FontSize="Medium"/>
+                <Entry x:Name="Phone" Text="{Binding Phone, Mode=TwoWay}" Placeholder="Phone" FontSize="Medium"/>
+                <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email" FontSize="Medium"/>
+                <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password" IsPassword="True" FontSize="Medium"/>
                 <Button Text="Register"
                         Command="{Binding RegisterCommand}"
-                    TextColor="White"
-                    FontSize="Medium"
-                    BackgroundColor="Blue"/>
+                        TextColor="White"
+                        FontSize="Medium"
+                        BackgroundColor="Blue"/>
 
                 <Label Text="{Binding Message}" HorizontalOptions="Center" FontSize="Medium"/>
             </StackLayout>
