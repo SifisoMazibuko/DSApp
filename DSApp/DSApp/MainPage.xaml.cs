@@ -64,8 +64,8 @@ namespace DSApp
             //});
 
             //masterPageItems.Add(list);
-            //masterPageItems.Add(page2);
-            //masterPageItems.Add(page3);
+            //masterPageItems.Add(list);
+            //masterPageItems.Add(list);
 
 
             #endregion
@@ -84,8 +84,7 @@ namespace DSApp
         {
             var item = (MasterPageItem)e.SelectedItem;
             Type page = item.TargetType;
-             Detail = new NavigationPage((Page)Activator.CreateInstance(page));
-           
+            Detail = new NavigationPage((Page)Activator.CreateInstance(page));          
            
             IsPresented = false;
         }                

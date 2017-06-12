@@ -9,7 +9,7 @@ namespace DSApp.Services
 {
     public class RegisterService<T>
     {
-        private const string WebServiceUrl = "http://localhost:30421/api/Account/";
+       private const string WebServiceUrl = "http://localhost:30421/api/Account/";
 
         public async Task<bool> RegisterUserAsync(T model)
         {

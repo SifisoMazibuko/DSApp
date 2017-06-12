@@ -14,8 +14,8 @@
                   "{ConstraintExpression Type=RelativeToParent, Property=Width}"
                 RelativeLayout.HeightConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
-                <Entry x:Name="UserName" Text="{Binding UserName}" Placeholder="Username" FontSize="Medium"/>
-                <Entry x:Name="Password" Text="{Binding Password}" Placeholder="password" IsPassword="True"/>
+                <Entry x:Name="UserName" Text="{Binding UserName, Mode=ToWay}" Placeholder="Username" FontSize="Medium"/>
+                <Entry x:Name="Password" Text="{Binding Password, Mode=ToWay}" Placeholder="password" IsPassword="True"/>
                 <Button Text="Login"
                         Clicked="OnClickLoginButton"
                         Command="{Binding LoginCommand}"

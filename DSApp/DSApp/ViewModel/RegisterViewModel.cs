@@ -14,7 +14,7 @@ namespace DSApp.ViewModel
 {
     public class RegisterViewModel
     {
-       private readonly RegisterService<Customers> _regServices = new RegisterService<Customers>();
+        private readonly RegisterService<Customers> _regServices = new RegisterService<Customers>();
 
         private RestClient<Customers> _restClient = new RestClient<Customers>();
 
@@ -27,7 +27,7 @@ namespace DSApp.ViewModel
             {
                 return new Command(async () =>
                 {
-                    //var reg = await _regServices.RegisterUserAsync(model
+                   // var reg = await _regServices.RegisterUserAsync(model);
 
                     var reg = await _restClient.PostAsync(model);
 

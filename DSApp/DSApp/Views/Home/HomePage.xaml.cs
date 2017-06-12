@@ -21,7 +21,7 @@ namespace DSApp.Views.Home
             {
                 Text = "Link To Account",
                 Font = Font.SystemFontOfSize(NamedSize.Large),
-                BackgroundColor = Color.LightBlue,
+                BackgroundColor = Color.DeepSkyBlue,
                 HeightRequest = 50,
                 WidthRequest = 250,
                 HorizontalOptions = LayoutOptions.Center,

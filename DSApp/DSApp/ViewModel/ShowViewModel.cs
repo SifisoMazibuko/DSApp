@@ -26,10 +26,11 @@ namespace DSApp.ViewModel
         {
             InitialAsync();
         }
-        public async Task InitialAsync()
+        public async Task<bool> InitialAsync()
         {
             var showServices = new ShowService();
             ShowsList = await showServices.GetShows();
+            return true;
         }
        
         /// <summary>
@@ -38,7 +39,7 @@ namespace DSApp.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnSelectedPropertyChanged([CallerMemberName] string propName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propName));
         }
     }
 }
